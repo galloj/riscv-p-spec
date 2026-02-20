@@ -37,7 +37,7 @@ these various DSP applications with lower power and higher performance.
 
 The P extension depends on Zba and Zbb extensions.
 
-The P extension isdefined for RV32 (RV32E?) and RV64.
+The P extension is defined for RV32 (RV32E?) and RV64.
 
 
 == Instruction Mnemonic Naming Conventions
