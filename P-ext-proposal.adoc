@@ -1,12 +1,14 @@
-image:media/image1.jpeg[media/image1,width=291,height=46]
-
-Preliminary in-progress RISC-V "P" Extension
-
-Version 0.12-draft
+= Preliminary in-progress RISC-V "P" Extension
+:doctype: book
+:toc:
+:toclevels: 3
+:imagesdir: docs-resources/images
+:title-logo-image: image:risc-v_logo.png["RISC-V International Logo",pdfwidth=3.25in,align=center]
+:revnumber: 0.12-draft
 
 This document is in the Development state. Assume anything can change.
 
-Revision History
+== Revision History
 
 [width="100%",cols="12%,16%,16%,56%",options="header",]
 |===
@@ -15,9 +17,6 @@ Revision History
 |0.11 |01/15/2026 |Jiawei |Add encodings, sail codes and descriptions.
 |0.12 |01/17/2026 |Jiawei |Fixed cols format issue.
 |===
-
-:toc:
-:toclevels: 3
 
 == Introduction
 
