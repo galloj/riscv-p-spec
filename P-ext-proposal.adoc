@@ -13970,7 +13970,7 @@ numbers. If any result overflows the signed 32-bit range, it is saturated and th
 
 ===== Encoding
 
-PPAIRE.B is encoded in the OP-32 major opcode with packed-byte pairing. :contentReference[oaicite:0]{index=0}
+PPAIRE.B is encoded in the OP-32 major opcode with packed-byte pairing.
 
 [wavedrom, ,svg]
 ....
@@ -14064,7 +14064,7 @@ instruction is an alias for PACK.
 
 ===== Encoding
 
-PPAIREO.B is encoded in the OP-32 major opcode with packed-byte pairing. :contentReference[oaicite:1]{index=1}
+PPAIREO.B is encoded in the OP-32 major opcode with packed-byte pairing.
 
 [wavedrom, ,svg]
 ....
@@ -14201,7 +14201,7 @@ comes from the odd position of `rs2`. Available only in RV64.
 
 ===== Encoding
 
-PPAIROE.B is encoded in the OP-32 major opcode with packed-byte pairing. :contentReference[oaicite:2]{index=2}
+PPAIROE.B is encoded in the OP-32 major opcode with packed-byte pairing.
 
 [wavedrom, ,svg]
 ....
@@ -14338,7 +14338,7 @@ comes from the even position of `rs2`. Available only in RV64.
 
 ===== Encoding
 
-PPAIRO.B is encoded in the OP-32 major opcode with packed-byte pairing. :contentReference[oaicite:3]{index=3}
+PPAIRO.B is encoded in the OP-32 major opcode with packed-byte pairing.
 
 [wavedrom, ,svg]
 ....
@@ -14942,7 +14942,7 @@ numbers. Available only in RV32.
 
 ===== Encoding
 
-ZIP8P is encoded in the OP-32 major opcode and is available only in RV64. :contentReference[oaicite:5]{index=5}
+ZIP8P is encoded in the OP-32 major opcode and is available only in RV64.
 
 [wavedrom, ,svg]
 ....
@@ -14984,7 +14984,7 @@ for each byte position, the corresponding byte from `rs2` is placed above the by
 
 ===== Encoding
 
-ZIP8HP is encoded in the OP-32 major opcode and is available only in RV64. :contentReference[oaicite:1]{index=1}
+ZIP8HP is encoded in the OP-32 major opcode and is available only in RV64.
 
 [wavedrom, ,svg]
 ....
@@ -15026,7 +15026,7 @@ The ZIP8HP instruction interleaves bytes from the high 32-bit halves of `rs2` an
 
 ===== Encoding
 
-UNZIP8P is encoded in the OP-32 major opcode and is available only in RV64. :contentReference[oaicite:2]{index=2}
+UNZIP8P is encoded in the OP-32 major opcode and is available only in RV64.
 
 [wavedrom, ,svg]
 ....
@@ -15068,7 +15068,7 @@ result containing selected byte lanes from each source.
 
 ===== Encoding
 
-UNZIP8HP is encoded in the OP-32 major opcode and is available only in RV64. :contentReference[oaicite:3]{index=3}
+UNZIP8HP is encoded in the OP-32 major opcode and is available only in RV64.
 
 [wavedrom, ,svg]
 ....
@@ -15110,7 +15110,7 @@ high-part byte selection pattern and forms a 64-bit result.
 
 ===== Encoding
 
-ZIP16P is encoded in the OP-32 major opcode and is available only in RV64. :contentReference[oaicite:4]{index=4}
+ZIP16P is encoded in the OP-32 major opcode and is available only in RV64.
 
 [wavedrom, ,svg]
 ....
@@ -15150,7 +15150,7 @@ The ZIP16P instruction interleaves 16-bit chunks from `rs2` and `rs1` to form a
 
 ===== Encoding
 
-ZIP16HP is encoded in the OP-32 major opcode and is available only in RV64. :contentReference[oaicite:5]{index=5}
+ZIP16HP is encoded in the OP-32 major opcode and is available only in RV64.
 
 [wavedrom, ,svg]
 ....
@@ -15190,7 +15190,7 @@ The ZIP16HP instruction interleaves 16-bit chunks from the high 32-bit halves of
 
 ===== Encoding
 
-UNZIP16P is encoded in the OP-32 major opcode and is available only in RV64. :contentReference[oaicite:6]{index=6}
+UNZIP16P is encoded in the OP-32 major opcode and is available only in RV64.
 
 [wavedrom, ,svg]
 ....
@@ -15230,7 +15230,7 @@ forms a 64-bit result.
 
 ===== Encoding
 
-UNZIP16HP is encoded in the OP-32 major opcode and is available only in RV64. :contentReference[oaicite:7]{index=7}
+UNZIP16HP is encoded in the OP-32 major opcode and is available only in RV64.
 
 [wavedrom, ,svg]
 ....
@@ -15270,7 +15270,7 @@ of `rs2` and `rs1` and forms a 64-bit result.
 
 ===== Encoding
 
-REV16 is a scalar instruction encoded in the OP-IMM major opcode and is available only in RV64. :contentReference[oaicite:4]{index=4}
+REV16 is a scalar instruction encoded in the OP-IMM major opcode and is available only in RV64.
 
 [wavedrom, ,svg]
 ....
@@ -16198,7 +16198,6 @@ of the destination register pair.
 
 PWADD.H is available only in RV32. It writes results to an even-odd register
 pair specified by `rd_p`.
-:contentReference[oaicite:3]{index=3}
 
 [wavedrom, ,svg]
 ....
@@ -16243,7 +16242,6 @@ and writes two 32-bit results to the destination register pair when `rd_p != 0`.
 ===== Encoding
 
 PWADDA.H is available only in RV32 and accumulates into the destination register pair.
-:contentReference[oaicite:4]{index=4}
 
 [wavedrom, ,svg]
 ....
@@ -16292,7 +16290,6 @@ PWADDA.H performs PWADD.H and adds each 32-bit result into the corresponding
 ===== Encoding
 
 PWADDU.H is available only in RV32.
-:contentReference[oaicite:5]{index=5}
 
 [wavedrom, ,svg]
 ....
@@ -16337,7 +16334,6 @@ and writes two 32-bit results to the destination register pair when `rd_p != 0`.
 ===== Encoding
 
 PWADDAU.H is available only in RV32 and accumulates into the destination register pair.
-:contentReference[oaicite:6]{index=6}
 
 [wavedrom, ,svg]
 ....
@@ -16386,7 +16382,6 @@ destination register pair.
 ===== Encoding
 
 PWSUB.H is available only in RV32.
-:contentReference[oaicite:7]{index=7}
 
 [wavedrom, ,svg]
 ....
@@ -16431,7 +16426,6 @@ writes two 32-bit results to the destination register pair when `rd_p != 0`.
 ===== Encoding
 
 PWSUBA.H is available only in RV32 and accumulates into the destination register pair.
-:contentReference[oaicite:8]{index=8}
 
 [wavedrom, ,svg]
 ....
@@ -16480,7 +16474,6 @@ destination register pair.
 ===== Encoding
 
 PWSUBU.H is available only in RV32.
-:contentReference[oaicite:9]{index=9}
 
 [wavedrom, ,svg]
 ....
@@ -16526,7 +16519,6 @@ when `rd_p != 0`.
 ===== Encoding
 
 PWSUBAU.H is available only in RV32 and accumulates into the destination register pair.
-:contentReference[oaicite:10]{index=10}
 
 [wavedrom, ,svg]
 ....
@@ -16575,7 +16567,6 @@ destination register pair.
 ===== Encoding
 
 WADD is available only in RV32 and writes a 64-bit result to register pair `rd_p`.
-:contentReference[oaicite:16]{index=16}
 
 [wavedrom, ,svg]
 ....
@@ -16617,7 +16608,6 @@ destination register pair when `rd_p != 0`.
 ===== Encoding
 
 WADDA is available only in RV32 and accumulates into the destination register pair.
-:contentReference[oaicite:17]{index=17}
 
 [wavedrom, ,svg]
 ....
@@ -16660,7 +16650,6 @@ register pair.
 ===== Encoding
 
 WADDU is available only in RV32.
-:contentReference[oaicite:18]{index=18}
 
 [wavedrom, ,svg]
 ....
@@ -16702,7 +16691,6 @@ the destination register pair when `rd_p != 0`.
 ===== Encoding
 
 WADDAU is available only in RV32 and accumulates into the destination register pair.
-:contentReference[oaicite:19]{index=19}
 
 [wavedrom, ,svg]
 ....
@@ -16745,7 +16733,6 @@ register pair.
 ===== Encoding
 
 WSUB is available only in RV32.
-:contentReference[oaicite:20]{index=20}
 
 [wavedrom, ,svg]
 ....
@@ -16787,7 +16774,6 @@ difference to the destination register pair when `rd_p != 0`.
 ===== Encoding
 
 WSUBA is available only in RV32 and accumulates into the destination register pair.
-:contentReference[oaicite:21]{index=21}
 
 [wavedrom, ,svg]
 ....
@@ -16830,7 +16816,6 @@ register pair.
 ===== Encoding
 
 WSUBU is available only in RV32.
-:contentReference[oaicite:22]{index=22}
 
 [wavedrom, ,svg]
 ....
@@ -16872,7 +16857,6 @@ difference to the destination register pair when `rd_p != 0`.
 ===== Encoding
 
 WSUBAU is available only in RV32 and accumulates into the destination register pair.
-:contentReference[oaicite:23]{index=23}
 
 [wavedrom, ,svg]
 ....
@@ -16919,7 +16903,6 @@ register pair.
 
 PWSLLI.B is available only in RV32. The shift amount is encoded in the `w_uimm`
 field (element width plus immediate). The destination is a register pair `rd_p`.
-:contentReference[oaicite:3]{index=3}
 
 [wavedrom, ,svg]
 ....
@@ -16966,7 +16949,6 @@ shifts left by an immediate amount, producing four 16-bit results.
 ===== Encoding
 
 PWSLL.BS is available only in RV32. The shift amount is taken from `rs2`.
-:contentReference[oaicite:4]{index=4}
 
 [wavedrom, ,svg]
 ....
@@ -17014,7 +16996,6 @@ shifts left by the amount in `rs2` (low 5 bits), producing four 16-bit results.
 ===== Encoding
 
 PWSLAI.B is available only in RV32. The shift amount is encoded in `w_uimm`.
-:contentReference[oaicite:5]{index=5}
 
 [wavedrom, ,svg]
 ....
@@ -17061,7 +17042,6 @@ shifts left by an immediate amount, producing four 16-bit results.
 ===== Encoding
 
 PWSLA.BS is available only in RV32. The shift amount is taken from `rs2`.
-:contentReference[oaicite:6]{index=6}
 
 [wavedrom, ,svg]
 ....
@@ -17109,7 +17089,6 @@ shifts left by the amount in `rs2` (low 5 bits), producing four 16-bit results.
 ===== Encoding
 
 PWSLLI.H is available only in RV32. The shift amount is encoded in `w_uimm`.
-:contentReference[oaicite:11]{index=11}
 
 [wavedrom, ,svg]
 ....
@@ -17155,7 +17134,6 @@ shifts left by an immediate amount, producing two 32-bit results.
 ===== Encoding
 
 PWSLL.HS is available only in RV32. The shift amount is taken from `rs2`.
-:contentReference[oaicite:12]{index=12}
 
 [wavedrom, ,svg]
 ....
@@ -17202,7 +17180,6 @@ shifts left by the amount in `rs2` (low 5 bits).
 ===== Encoding
 
 PWSLAI.H is available only in RV32. The shift amount is encoded in `w_uimm`.
-:contentReference[oaicite:13]{index=13}
 
 [wavedrom, ,svg]
 ....
@@ -17248,7 +17225,6 @@ shifts left by an immediate amount.
 ===== Encoding
 
 PWSLA.HS is available only in RV32. The shift amount is taken from `rs2`.
-:contentReference[oaicite:14]{index=14}
 
 [wavedrom, ,svg]
 ....
@@ -17295,7 +17271,6 @@ shifts left by the amount in `rs2` (low 5 bits).
 ===== Encoding
 
 WSLL is available only in RV32. The shift amount is taken from `rs2`.
-:contentReference[oaicite:25]{index=25}
 
 [wavedrom, ,svg]
 ....
@@ -17339,7 +17314,6 @@ and writes the 64-bit result to the destination register pair when `rd_p != 0`.
 ===== Encoding
 
 WSLLI is available only in RV32. The shift amount is encoded in `w_uimm`.
-:contentReference[oaicite:24]{index=24}
 
 [wavedrom, ,svg]
 ....
@@ -17382,7 +17356,6 @@ writes the 64-bit result to the destination register pair when `rd_p != 0`.
 ===== Encoding
 
 WSLA is available only in RV32. The shift amount is taken from `rs2`.
-:contentReference[oaicite:27]{index=27}
 
 [wavedrom, ,svg]
 ....
@@ -17426,7 +17399,6 @@ and writes the 64-bit result to the destination register pair when `rd_p != 0`.
 ===== Encoding
 
 WSLAI is available only in RV32. The shift amount is encoded in `w_uimm`.
-:contentReference[oaicite:26]{index=26}
 
 [wavedrom, ,svg]
 ....
@@ -17474,7 +17446,6 @@ writes the 64-bit result to the destination register pair when `rd_p != 0`.
 WZIP8P is available only in RV32. It writes its 64-bit result to the even-odd
 register pair specified by `rd_p` (no write occurs if `rd_p = 0`).
 It is encoded in the RV32 register-pair OP-IMM-32 format with `f=111` and `w=10`.
-:contentReference[oaicite:1]{index=1}
 
 [wavedrom, ,svg]
 ....
@@ -17525,7 +17496,6 @@ interleaving of bytes [31:16].
 WZIP16P is available only in RV32. It writes its 64-bit result to the even-odd
 register pair specified by `rd_p` (no write occurs if `rd_p = 0`).
 It is encoded in the RV32 register-pair OP-IMM-32 format with `f=111` and `w=11`.
-:contentReference[oaicite:2]{index=2}
 
 [wavedrom, ,svg]
 ....
@@ -17581,7 +17551,6 @@ in `rd`. If `rs1_p = 0`, the source pair is treated as zero.
 
 PREDSUM.DBS is encoded in the OP-IMM-32 major opcode with `func3=100`, bit 28
 set to 1, and `rs1_p` selecting the source register pair.
-:contentReference[oaicite:2]{index=2}
 
 [wavedrom, ,svg]
 ....
@@ -17630,7 +17599,6 @@ register pair `rs1_p` to the signed scalar value in `rs2`, and writes the low
 PREDSUMU.DBS is available only in RV32. It reads a 64-bit packed source from the
 even-odd register pair specified by `rs1_p` and produces a 32-bit scalar result
 in `rd`. If `rs1_p = 0`, the source pair is treated as zero.
-:contentReference[oaicite:3]{index=3}
 
 [wavedrom, ,svg]
 ....
@@ -17679,7 +17647,6 @@ the low 32 bits of the resulting sum to `rd`.
 PREDSUM.DHS is available only in RV32. It reads a 64-bit packed source from the
 even-odd register pair specified by `rs1_p` and produces a 32-bit scalar result
 in `rd`. If `rs1_p = 0`, the source pair is treated as zero.
-:contentReference[oaicite:4]{index=4}
 
 [wavedrom, ,svg]
 ....
@@ -17728,7 +17695,6 @@ register pair `rs1_p` to the signed scalar value in `rs2`, and writes the low
 PREDSUMU.DHS is available only in RV32. It reads a 64-bit packed source from the
 even-odd register pair specified by `rs1_p` and produces a 32-bit scalar result
 in `rd`. If `rs1_p = 0`, the source pair is treated as zero.
-:contentReference[oaicite:5]{index=5}
 
 [wavedrom, ,svg]
 ....
