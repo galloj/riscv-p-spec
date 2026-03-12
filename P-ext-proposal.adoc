@@ -12810,14 +12810,15 @@ w-uimm format with word elements. Available only in RV32.
     { bits: 4, name: 'rd_p' },
     { bits: 4, name: 0xe },
     { bits: 4, name: 'rs1_p' },
-    { bits: 7, name: '01xxxxx' },
+    { bits: 5, name: 'uimm5' },
+    { bits: 2, name: 0x1 },
     { bits: 1, name: 0x0 },
     { bits: 3, name: 0x5, attr: ['PSRARI.DW'] },
     { bits: 1, name: 0x0 },
 ]}
 ....
 
-The uimm field bits [4:0] encode the 5-bit shift amount for word elements.
+The uimm5 field bits [4:0] encode the 5-bit shift amount for word elements.
 
 ===== Operation
 
@@ -12826,7 +12827,7 @@ The uimm field bits [4:0] encode the 5-bit shift amount for word elements.
 // Equivalent to two SRARI operations on even/odd register pairs
 s1_lo = X[rs1_p * 2]
 s1_hi = X[rs1_p * 2 + 1]
-shamt = uimm[4:0]          // 5-bit shift amount for words
+shamt = uimm5[4:0]          // 5-bit shift amount for words
 
 if shamt == 0:
     d_lo = s1_lo
