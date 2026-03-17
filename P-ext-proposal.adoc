@@ -4,7 +4,7 @@
 :toclevels: 3
 :imagesdir: docs-resources/images
 :title-logo-image: image:risc-v_logo.png["RISC-V International Logo",pdfwidth=3.25in,align=center]
-:revnumber: 0.19-draft
+:revnumber: 0.20-draft
 
 This document is in the Development state. Assume anything can change.
 
@@ -17,6 +17,7 @@ This document is in the Development state. Assume anything can change.
 |0.11 |01/15/2026 |Jiawei |Add encodings, sail codes and descriptions.
 |0.12 |01/17/2026 |Jiawei |Fixed cols format issue.
 |0.19 |03/16/2026 |  | Sync with John Hauser's working draft
+|0.20 |03/17/2026 | Craig Topper | Update PSATI* and SATI assembly syntax
 |===
 
 == Introduction
@@ -10518,12 +10519,12 @@ X[rd] = d
 
 ===== Mnemonic
 
-psati.h _rd_, _rs1_, _uimm4_
+psati.h _rd_, _rs1_, _width_
 
 ===== Description
 
 PSATI.H saturates each packed 16-bit halfword element of `rs1` to the signed
-range [-(2^n), 2^n - 1], where n is specified by the 4-bit unsigned immediate.
+range [-(2^width-1^), 2^width-1^-1], where `width` is specified by `uimm4`+1.
 If an element exceeds the range, the result is clamped to the nearest bound and
 the `vxsat` overflow flag is set. Elements already within range are passed
 through unchanged.
@@ -10576,12 +10577,12 @@ X[rd] = d
 
 ===== Mnemonic
 
-psati.w _rd_, _rs1_, _uimm5_
+psati.w _rd_, _rs1_, _width_
 
 ===== Description
 
 PSATI.W saturates each packed 32-bit word element of `rs1` to the signed range
-[-(2^n), 2^n - 1], where n is specified by the 5-bit unsigned immediate. If an
+[-(2^width-1^), 2^width-1^-1], where `width` is specified by `uimm5`+1. If an
 element exceeds the range, the result is clamped to the nearest bound and the
 `vxsat` overflow flag is set. Elements already within range are passed through
 unchanged. Available only in RV64.
@@ -10638,9 +10639,9 @@ pusati.h _rd_, _rs1_, _uimm4_
 ===== Description
 
 PUSATI.H performs unsigned saturation on each packed 16-bit halfword element of
-`rs1` to the range [0, 2^n - 1], where n is specified by the 4-bit unsigned
-immediate. Negative values are clamped to zero and values exceeding the maximum
-are clamped to 2^n - 1. When clamping occurs, the `vxsat` overflow flag is set.
+`rs1` to the range [0, 2^width^-1], where `width` is specified by `uimm4`.
+Negative values are clamped to zero and values exceeding the maximum are clamped
+to 2^width^-1. When clamping occurs, the `vxsat` overflow flag is set.
 Elements already within range are passed through unchanged.
 
 <<<
@@ -10695,9 +10696,9 @@ pusati.w _rd_, _rs1_, _uimm5_
 ===== Description
 
 PUSATI.W performs unsigned saturation on each packed 32-bit word element of `rs1`
-to the range [0, 2^n - 1], where n is specified by the 5-bit unsigned immediate.
+to the range [0, 2^width^-1], where `width` is specified by `uimm5`.
 Negative values are clamped to zero and values exceeding the maximum are clamped
-to 2^n - 1. When clamping occurs, the `vxsat` overflow flag is set. Elements
+to 2^width^-1. When clamping occurs, the `vxsat` overflow flag is set. Elements
 already within range are passed through unchanged. Available only in RV64.
 
 <<<
@@ -10785,13 +10786,15 @@ else:
 
 ===== Mnemonic
 
-sati _rd_, _rs1_, _uimm5_ (RV32) +
-sati _rd_, _rs1_, _uimm6_ (RV64)
+sati _rd_, _rs1_, _width_
 
 ===== Description
 
-The SATI instruction saturates `rs1` to a signed range determined by the
-immediate `uimm5` or `uimm6` and writes the result to `rd`.
+The SATI instruction saturates `rs1` to the signed range
+[-(2^width-1^), 2^width-1^-1] where `width` is specified by `uimm5`+1(RV32) or
+`uimm6`+1(RV64). If the value exceeds the range, the result is clamped to the
+nearest bound and the `vxsat` overflow flag is set. Values within the range are
+passed through unchanged.
 
 ===== Notes
 
@@ -10885,8 +10888,11 @@ usati _rd_, _rs1_, _uimm6_ (RV64)
 
 ===== Description
 
-The USATI instruction saturates `rs1` to the unsigned range [0, maxval]
-determined by the immediate `uimm5` or `uimm6` and writes the result to `rd`.
+The USATI instruction saturates `rs1` to the unsigned range [0, 2^width^-1]
+where `width` is specified by `uimm5`(RV32) or `uimm6`(RV64). Negative values
+are clamped to zero and values exceeding the maximum are clamped to 2^width^-1.
+When clamping occurs, the `vxsat` overflow flag is set. Values already within
+range are passed through unchanged.
 
 ===== Notes
 
@@ -10955,7 +10961,7 @@ X[rd_p * 2 + 1] = d_hi
 
 ===== Mnemonic
 
-psati.dh _rd_p_, _rs1_p_, _uimm4_
+psati.dh _rd_p_, _rs1_p_, _width_
 
 ===== Description
 
@@ -10963,9 +10969,9 @@ PSATI.DH performs packed 16-bit halfword signed saturation on double-wide
 (register-pair) operands. It is equivalent to two PSATI.H operations: one on the
 even registers and one on the odd registers of each pair. Both operands (`rd_p`,
 `rs1_p`) are register pairs and must specify even register numbers. Each halfword
-element is saturated to the signed range [-(2^n), 2^n - 1], where n is specified
-by the 4-bit unsigned immediate. When clamping occurs, the `vxsat` overflow flag
-is set. Available only in RV32.
+element is saturated to the signed range [-(2^width-1^), 2^width-1^-1], where
+`width` is specified by `uimm4`+1. When clamping occurs, the `vxsat` overflow
+flag is set. Available only in RV32.
 
 <<<
 ==== PSATI.DW (RV32)
@@ -11023,15 +11029,15 @@ X[rd_p * 2 + 1] = d_hi
 
 ===== Mnemonic
 
-psati.dw _rd_p_, _rs1_p_, _uimm5_
+psati.dw _rd_p_, _rs1_p_, _width_
 
 ===== Description
 
 PSATI.DW performs signed saturation on each 32-bit element across a double-wide
 (register-pair) source. It is equivalent to two SATI operations: one on the even
 registers and one on the odd registers of each pair. Each element is clamped to
-the range [-2^n, 2^n - 1] where `n` is encoded in the `uimm5` field. If
-saturation occurs, `vxsat` is set. The destination (`rd_p`) and source
+the range [-2^width-1^, 2^width-1^-1] where `width` is specified by `uimm5`+1.
+If saturation occurs, `vxsat` is set. The destination (`rd_p`) and source
 (`rs1_p`) are register pairs and must specify even register numbers. Available
 only in RV32.
 
@@ -11101,8 +11107,8 @@ pusati.dh _rd_p_, _rs1_p_, _uimm4_
 PUSATI.DH performs unsigned saturation on each packed 16-bit element across a
 double-wide (register-pair) source. It is equivalent to two PUSATI.H operations:
 one on the even registers and one on the odd registers of each pair. Each
-element is clamped to the range [0, 2^n - 1] where `n` is encoded in the
-`uimm4` field. If saturation occurs, `vxsat` is set. The destination (`rd_p`)
+element is clamped to the range [0, 2^width^-1] where `width` is specified by
+`uimm4`. If saturation occurs, `vxsat` is set. The destination (`rd_p`)
 and source (`rs1_p`) are register pairs and must specify even register numbers.
 Available only in RV32.
 
@@ -11168,8 +11174,8 @@ pusati.dw _rd_p_, _rs1_p_, _uimm5_
 PUSATI.DW performs unsigned saturation on each 32-bit element across a
 double-wide (register-pair) source. It is equivalent to two USATI operations:
 one on the even registers and one on the odd registers of each pair. Each
-element is clamped to the range [0, 2^n - 1] where `n` is encoded in the
-`uimm5` field. If saturation occurs, `vxsat` is set. The destination (`rd_p`)
+element is clamped to the range [0, 2^width^-1] where `n` is specified by
+`uimm5`. If saturation occurs, `vxsat` is set. The destination (`rd_p`)
 and source (`rs1_p`) are register pairs and must specify even register numbers.
 Available only in RV32.
 
